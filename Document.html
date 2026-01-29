@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 56px; /* Navbar height */
+            transition: margin-left 0.3s;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: -250px;
+            height: 100%;
+            width: 250px;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            border-right: 1px solid #ddd;
+            transition: left 0.5s;
+            overflow-y: auto;
+        }
+
+        .sidebar.show {
+            left: 0;
+        }
+
+        .sidebar .nav-link {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #ddd;
+        }
+
+        .sidebar .dropdown-menu {
+            position: static;
+            float: none;
+            width: 100%;
+            margin-top: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        /* Content Shifting */
+        .content {
+            transition: margin-left 0.5s;
+			
+        }
+
+        .content.shifted {
+            margin-left: 250px; /* Sidebar width */
+        }
+
+        /* Dropdown visibility */
+        .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/logo.png" alt="logo" width="30" height="30" class="d-inline-block align-top">
+        Ganesh's Emporium
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-outline-primary my-2 my-sm-0 ml-2" href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-outline-light ml-2" id="toggleSidebar">☰ Categories</button>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <h4 class="pl-3">Categories</h4>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Snacks</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="beveragesDropdown" role="button" aria-expanded="false">
+                Beverages
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="beveragesDropdown">
+                <li><a class="dropdown-item" href="#">Tea</a></li>
+                <li><a class="dropdown-item" href="#">Coffee</a></li>
+                <li><a class="dropdown-item" href="#">Juice</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="groceriesDropdown" role="button" aria-expanded="false">
+                Groceries
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="groceriesDropdown">
+                <li><a class="dropdown-item" href="#">Rice</a></li>
+                <li><a class="dropdown-item" href="#">Pulses</a></li>
+                <li><a class="dropdown-item" href="#">Spices</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="personalCareDropdown" role="button" aria-expanded="false">
+                Personal Care
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="personalCareDropdown">
+                <li><a class="dropdown-item" href="#">Shampoo</a></li>
+                <li><a class="dropdown-item" href="#">Soap</a></li>
+                <li><a class="dropdown-item" href="#">Toothpaste</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="householdItemsDropdown" role="button" aria-expanded="false">
+                Household Items
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="householdItemsDropdown">
+                <li><a class="dropdown-item" href="#">Cleaning Supplies</a></li>
+                <li><a class="dropdown-item" href="#">Kitchenware</a></li>
+                <li><a class="dropdown-item" href="#">Bedding</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="content container mt-5" id="content">
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img class="product-image" src="assets/img/Chanachur.jpg" alt="Product 1">
+                <div class="card-body">
+                    <h5 class="card-title">Chanachur</h5>
+                    <p class="card-text">15 Tk/-</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img class="product-image" src="assets/img/biscuits.jpg" alt="Product 2">
+                <div class="card-body">
+                    <h5 class="card-title">Biscuits</h5>
+                    <p class="card-text">25 Tk/-</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img class="product-image" src="assets/img/salt.jpg" alt="Product 3">
+                <div class="card-body">
+                    <h5 class="card-title">Lobon</h5>
+                    <p class="card-text">39.99 Tk/-</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img class="product-image" src="assets/img/pran up.jpg" alt="Product 4">
+                <div class="card-body">
+                    <h5 class="card-title">Pran up</h5>
+                    <p class="card-text">49.99 Tk/-</p>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2024 Ganesh's Emporium. All rights reserved.</p>
+    <p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
+</footer>
+
+<!-- Bootstrap JS & Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script>
+    document.getElementById('toggleSidebar').addEventListener('click', function () {
+        var sidebar = document.getElementById('sidebar');
+        var content = document.getElementById('content');
+        sidebar.classList.toggle('show');
+        content.classList.toggle('shifted');
+    });
+
+    // Toggle dropdown menus when clicked
+    document.querySelectorAll('.dropdown-toggle').forEach(function (dropdown) {
+        dropdown.addEventListener('click', function (e) {
+            var menu = e.target.nextElementSibling;
+            menu.classList.toggle('show');
+        });
+    });
+</script>
+
+</body>
+</html>

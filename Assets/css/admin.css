@@ -1,0 +1,81 @@
+<!-- Custom CSS -->
+        body {
+            padding-top: 56px;
+        }	
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #343a40;
+            color: #fff;
+            padding-top: 20px;
+            display: none; /* Initially hidden */
+            z-index: 1000;
+        }
+        .sidebar.show {
+            display: block; /* Show on toggle */
+        }
+        .sidebar a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+        .content.shifted {
+            margin-left: 250px; /* Space for sidebar */
+        }
+        .table img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        /* Styling the menu button */
+        .menu-btn-container {
+            position: relative;
+            top: 50px;
+            left: 0;
+            padding: 10px;
+            z-index: 1050;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+			height: 25px; /* Adjust the height as needed */
+			align-items: center;
+			
+		  }
+
+		  .menu-btn {
+			background: none;
+			border: none;
+			padding: 02;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+		  }
+
+		  .menu-line {
+			width: 25px; /* Width of each line */
+			height: 2px; /* Thickness of each line */
+			background-color: #fff; /* Color of the lines */
+			margin: 3px 0; /* Spacing between the lines */
+			border-radius: 2px; /* Rounded edges */
+		  }
+
+		  .menu-btn:focus {
+			outline: none;
+		  }
+        #toggleSidebar {
+            margin-left: 20px;
+        }
