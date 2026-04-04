@@ -7,9 +7,9 @@
                 Product Arrangement
             </a>
             <ul class="dropdown-menu" aria-labelledby="down">
-                <li><a class="dropdown-item" href="cetegory_add.php">Category Add</a></li>
-                <li><a class="dropdown-item" href="sub_cetegory_add.php">Sub Category Add</a></li>
-                <li><a class="dropdown-item" href="add_product.php">Add Product</a></li>
+                <li><a class="dropdown-item text-dark" href="cetegory_add.php">Category Add</a></li>
+                <li><a class="dropdown-item text-dark" href="sub_cetegory_add.php">Sub Category Add</a></li>
+                <li><a class="dropdown-item text-dark" href="add_product.php">Add Product</a></li>
             </ul>
         </div>
 		<a href="remaining_due.php">Remaining Due</a>

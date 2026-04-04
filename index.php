@@ -21,7 +21,7 @@ require_once('db_connection.php');
 				?>
 				<div class="col-md-3 mb-4">
 					<div class="card product-card">
-						<img class="product-image" src="Assets\image\<?php echo $row['image_url']; ?>" alt="<?php echo htmlspecialchars($row['product_name']); ?>">
+						<img class="product-image" src="Assets/image/<?php echo $row['image_url'] ?? 'No_Image.jpg'; ?>" alt="<?php echo htmlspecialchars($row['product_name']); ?>">
 						<div class="card-body">
 							<h5 class="card-title"><?php echo htmlspecialchars($row['product_name']); ?></h5>
 							<p class="card-text"><?php echo $row['price']; ?> Tk/-</p>

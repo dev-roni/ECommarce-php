@@ -148,7 +148,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 			 <tr>
              	<td>".$product['id']."</td>
 				<td>". get_item_name($product['id'],$conn)."</td>
-				<td><img src='". get_item_image($product['id'],$conn)."' alt='Girl in a jacket' width='50' height='60'></td>
+				<td><img src='". get_item_image($product['id'],$conn)."' alt='image' width='50' height='60'></td>
 				<td>". get_cetegory_name($product['id'],$conn)."</td>
 				<td>". get_sub_cetegory_name($product['id'],$conn)."</td>
             </tr>
