@@ -107,6 +107,13 @@ require_once('db_connection.php');
             <div class="login-card">
                 <!-- Login Form -->
                 <h2>Sign In</h2>
+				<p class='text-success-emphasis lead' >
+				<?php  
+				if (isset($_GET['regi_success'])) {
+					echo $_GET['regi_success'];
+				}
+				?>
+				</p>
                 <form method='POST' action='login.php'>
                     <!-- Email -->
                     <div class="mb-3">
@@ -126,7 +133,7 @@ require_once('db_connection.php');
                     <!-- Forgot password and Sign up links -->
                     <div class="text-center mt-3">
                         <a href="#">Forgot your password?</a><br>
-                        <a href="#">Don't have an account? Sign up</a>
+                        <a href="registration.php">Don't have an account? Sign up</a>
                     </div>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="text-white text-center py-4">
+<footer class="text-white text-center py-4 ">
     <p>&copy; 2024 Ganesh Vandar All rights reserved.</p>
     <p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
 </footer>

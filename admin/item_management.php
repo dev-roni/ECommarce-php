@@ -63,20 +63,18 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 		<table class="table table-bordered table-striped">
 			<thead class="table-dark">
 				<tr>
+					<th>Id</th>
 					<th>Product Name</th>
 					<th>Available</th>
 					<th>image</th>
-					<th>Category</th>
-					<th>Sub Category</th>
 				</tr>
 			</thead>
 				<tbody id="productList">
 				 <tr>
+					<td>1</td>
 					<td>potato</td>
 					<td>10 pc</td>
 					<td></td>
-					<td>khhaddo</td>
-					<td>chips</td>
 				</tr>
 			</tbody>
 		</table>
